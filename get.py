@@ -11,5 +11,6 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
-[tweet for tweet in tweepy.Cursor(api.search, q=keyword) if list(tweet.text)[:2] != ['R', 'T']]
+for tweet in api.search(q=keyword, result_type='recent')
+    print(tweet)
 
